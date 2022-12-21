@@ -10,18 +10,27 @@ let offset = 0;
 
 function convertPokemonToLi(pokemon = new Pokemon()) {
     return `
-        <li class="pokemon  
-            <span class="number">#${pokemon.number}</span>
-            <span class="name">${pokemon.name}</span>
-
+        <h1>${pokemon.name}</h1>
+        <li class="pokemon">
+            <span class="number">#00${pokemon.number}</span>
+            
+            <ol class="types">
+            ${pokemon.types.map((type) => `<li class="type ${type.type.name}">${type.type.name}</li>`).join('')}
+        </ol>
             <div class="detail">
-                <ol class="types">
-                    ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
-                </ol>
-                <div class="ability">${pokemon.abilities.map()}</div>
+           
+            <img src="${pokemon.photo}" alt="${pokemon.name}">
+                
+                <div class="stats">${pokemon.stats.map((statsSlot) => statsSlot.name).join('')}
+              
+                    </div>
+                    <section class="pokemon__detail">
+                    <h1> Sobre </h1>
+                    ${pokemon.stats.map(stat => `<div class="pokemonStats"> <strong> ${stat.stat.name}: </strong> ${stat.base_stat} </div>`).join('')}
+                    <div class="pokemonAbilities"> <strong> Abilities: </strong>  ${pokemon.abilities.map(abilitySlot => abilitySlot.ability.name).join(", ")} </div>
+                  </section>
+               
 
-                <img src="${pokemon.photo}"
-                     alt="${pokemon.name}">
             </div>
         </li>
     `
@@ -35,4 +44,3 @@ function loadPokemonItens(){
 }
 
 loadPokemonItens(offset, limit)
-

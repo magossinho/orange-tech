@@ -1,14 +1,16 @@
 
 class Pokemon {
-    constructor ({abilities,number,name,type,photo,types = []}){
-      this.name = name;
-      this.type = type;
-      this.photo = photo;
-      this.types = types;
-      this.number = number;
-      this.abilities =abilities;
-
-
-    }
+  constructor({ number, name, type, types, photo, base_experience, abilities, height, weight, ability, stats }){
+    this.number = number
+    this.name = name
+    this.type = type
+    this.types = types
+    this.photo = photo
+    this.base_experience = base_experience
+    this.abilities = abilities
+    this.height = height
+    this.weight = weight
+    this.stats = stats
+  }
 }
 export default Pokemon
